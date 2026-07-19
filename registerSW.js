@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/kansei-memo/sw.js', { scope: '/kansei-memo/' })})}
