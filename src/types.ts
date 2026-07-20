@@ -4,8 +4,9 @@ export interface Memo {
   text?: string;
   url?: string;
   imageBlob?: Blob;        // 撮影 or ファイル選択した画像の実体
-  weight: number;          // 縦軸: 0(軽い) 〜 100(重い)
-  colorfulness: number;    // 横軸: 0(モノトーン) 〜 100(カラフル)
+  hue: number;             // 色相: 0〜360（作成時にスライダーで選択）
+  weight: number;          // 縦軸: 0(軽い) 〜 100(重い) => 明度に対応
+  colorfulness: number;    // 横軸: 0(モノトーン) 〜 100(カラフル) => 彩度に対応
   createdAt: number;
   updatedAt: number;
 }

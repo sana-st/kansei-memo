@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 import type { Memo, MemoInput } from '../types';
 import { Feather, Weight, Palette, Contrast } from 'lucide-react';
+import { DOT_SIZE, DOT_OPACITY, getDotColor } from '../colorUtils';
 
 type PendingMemo = Omit<MemoInput, 'weight' | 'colorfulness'>;
 
@@ -73,10 +74,10 @@ export function MemoGraph({
             style={{
               left: `${memo.colorfulness}%`,
               top: `${memo.weight}%`,
-              width: `${10 + memo.weight / 8}px`,
-              height: `${10 + memo.weight / 8}px`,
-              backgroundColor: `hsl(210 ${memo.colorfulness}% 45%)`,
-              opacity: 0.55 + memo.weight / 250,
+              width: `${DOT_SIZE}px`,
+              height: `${DOT_SIZE}px`,
+              backgroundColor: getDotColor(memo.hue, memo.colorfulness, memo.weight),
+              opacity: DOT_OPACITY,
             }}
             onPointerDown={(e) => {
               e.stopPropagation();
@@ -90,7 +91,14 @@ export function MemoGraph({
         {pendingMemo && (
           <div
             className="graph-dot graph-dot-pending"
-            style={{ left: `${pendingPos.colorfulness}%`, top: `${pendingPos.weight}%` }}
+            style={{
+              left: `${pendingPos.colorfulness}%`,
+              top: `${pendingPos.weight}%`,
+              width: `${DOT_SIZE}px`,
+              height: `${DOT_SIZE}px`,
+              backgroundColor: getDotColor(pendingMemo.hue, pendingPos.colorfulness, pendingPos.weight),
+              opacity: DOT_OPACITY,
+            }}
             onPointerDown={(e) => {
               e.stopPropagation();
               setIsDraggingPending(true);

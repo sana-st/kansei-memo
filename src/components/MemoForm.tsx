@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { MemoInput } from '../types';
+import { getHuePreviewColor } from '../colorUtils';
 
 type FormOutput = Omit<MemoInput, 'weight' | 'colorfulness'>;
 
@@ -14,6 +15,7 @@ export function MemoForm({ onSubmit, onCancel }: MemoFormProps) {
   const [url, setUrl] = useState('');
   const [imageBlob, setImageBlob] = useState<Blob | undefined>(undefined);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [hue, setHue] = useState(() => Math.floor(Math.random() * 360)); // 初期値はランダム
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -30,6 +32,7 @@ export function MemoForm({ onSubmit, onCancel }: MemoFormProps) {
       text: text.trim() || undefined,
       url: url.trim() || undefined,
       imageBlob,
+      hue,
     });
   };
 
@@ -56,6 +59,21 @@ export function MemoForm({ onSubmit, onCancel }: MemoFormProps) {
         />
         <input type="file" accept="image/*" onChange={handleImageChange} />
         {imagePreview && <img src={imagePreview} alt="preview" className="form-image-preview" />}
+
+        <div className="hue-picker">
+          <div className="hue-picker-header">
+            <span>色相</span>
+            <div className="hue-swatch" style={{ backgroundColor: getHuePreviewColor(hue) }} />
+          </div>
+          <input
+            type="range"
+            min={0}
+            max={359}
+            value={hue}
+            onChange={(e) => setHue(Number(e.target.value))}
+            className="hue-slider"
+          />
+        </div>
 
         <div className="modal-actions">
           <button onClick={onCancel}>キャンセル</button>

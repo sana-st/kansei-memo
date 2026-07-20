@@ -52,7 +52,7 @@ kansei-memo/
 │   ├── main.tsx
 │   ├── App.tsx           # 画面全体のフロー（状態管理）を担う親コンポーネント
 │   ├── App.css
-│   ├── theme.css          # 色（背景色・アクセントカラー・テキストカラー等）の一元管理
+│   ├── color.css          # 色（背景色・アクセントカラー・テキストカラー等）の一元管理
 │   ├── types.ts           # Memo / MemoInput の型定義
 │   ├── storage.ts         # IndexedDB（idb-keyval）への読み書き
 │   ├── hooks/
@@ -85,4 +85,4 @@ npm run deploy
 
 ## デザイン
 
-Figma上に、リストビュー・グラフビューのモックアップを作成済み（配色は`theme.css`の値と対応させている）。
+Figma上に、リストビュー・グラフビューのモックアップを作成済み（配色は`color.css`の値と対応させている）。
