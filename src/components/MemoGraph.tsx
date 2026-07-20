@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import type { Memo, MemoInput } from '../types';
+import { Feather, Weight, Palette, Contrast } from 'lucide-react';
 
 type PendingMemo = Omit<MemoInput, 'weight' | 'colorfulness'>;
 
@@ -53,10 +54,10 @@ export function MemoGraph({
 
   return (
     <div className="graph-container">
-      <div className="graph-axis-label graph-axis-top">軽い</div>
-      <div className="graph-axis-label graph-axis-bottom">重い</div>
-      <div className="graph-axis-label graph-axis-left">モノトーン</div>
-      <div className="graph-axis-label graph-axis-right">カラフル</div>
+      <div className="graph-axis-label graph-axis-top"><Feather size={16} /></div>
+      <div className="graph-axis-label graph-axis-bottom"><Weight size={16} /></div>
+      <div className="graph-axis-label graph-axis-left"><Contrast size={16} /></div>
+      <div className="graph-axis-label graph-axis-right"><Palette size={16} /></div>
 
       <div
         ref={containerRef}

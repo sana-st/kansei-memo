@@ -5,6 +5,7 @@ import { MemoGraph } from './components/MemoGraph';
 import { MemoForm } from './components/MemoForm';
 import { MemoDetailModal } from './components/MemoDetailModal';
 import type { Memo, MemoInput } from './types';
+import { List, Sparkles } from 'lucide-react';
 
 type Tab = 'list' | 'graph';
 type PendingMemo = Omit<MemoInput, 'weight' | 'colorfulness'>;
@@ -37,10 +38,10 @@ function App() {
     <div className="app">
       <header className="app-header">
         <button className={tab === 'list' ? 'active' : ''} onClick={() => setTab('list')}>
-          リスト
+          <List size={24} />
         </button>
         <button className={tab === 'graph' ? 'active' : ''} onClick={() => setTab('graph')}>
-          グラフ
+          <Sparkles size={24} />
         </button>
       </header>
 
