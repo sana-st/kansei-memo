@@ -54,11 +54,6 @@ export function MemoGraph({
 
   return (
     <div className="graph-container">
-      <div className="graph-axis-label graph-axis-top"><Feather size={16} /></div>
-      <div className="graph-axis-label graph-axis-bottom"><Weight size={16} /></div>
-      <div className="graph-axis-label graph-axis-left"><Contrast size={16} /></div>
-      <div className="graph-axis-label graph-axis-right"><Palette size={16} /></div>
-
       <div
         ref={containerRef}
         className="graph-plane"
@@ -66,6 +61,11 @@ export function MemoGraph({
         onPointerUp={stopDragging}
         onPointerLeave={stopDragging}
       >
+        <div className="graph-axis-label graph-axis-top"><Feather size={16} /></div>
+        <div className="graph-axis-label graph-axis-bottom"><Weight size={16} /></div>
+        <div className="graph-axis-label graph-axis-left"><Contrast size={16} /></div>
+        <div className="graph-axis-label graph-axis-right"><Palette size={16} /></div>
+        
         {memos.map((memo) => (
           <div
             key={memo.id}

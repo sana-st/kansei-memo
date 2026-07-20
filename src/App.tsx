@@ -5,7 +5,7 @@ import { MemoGraph } from './components/MemoGraph';
 import { MemoForm } from './components/MemoForm';
 import { MemoDetailModal } from './components/MemoDetailModal';
 import type { Memo, MemoInput } from './types';
-import { List, Sparkles } from 'lucide-react';
+import { List, Sparkles, Plus } from 'lucide-react';
 
 type Tab = 'list' | 'graph';
 type PendingMemo = Omit<MemoInput, 'weight' | 'colorfulness'>;
@@ -61,7 +61,7 @@ function App() {
 
       {!pendingMemo && (
         <button className="fab" onClick={() => setIsFormOpen(true)} aria-label="新規メモ">
-          ＋
+          <Plus size={36} />
         </button>
       )}
 

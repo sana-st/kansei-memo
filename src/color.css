@@ -1,0 +1,21 @@
+:root {
+  /* ベース */
+  --color-background: #fafafa;
+  --color-surface: #ffffff;
+
+  /* テキスト */
+  --color-text-primary: #1c1c1e;
+  --color-text-secondary: #8a8a8e;
+
+  /* 枠線 */
+  --color-border: #e5e5ea;
+
+  /* アクセント */
+  --color-accent: #BA82EF;
+  --color-accent-soft: #F8F0FF;
+  --color-accent-shadow: rgba(35, 82, 217, 0.4);
+
+  /* その他ボタン等 */
+  --color-button-dark: #3a3a3c;
+  --color-danger: #ff3b30;
+}

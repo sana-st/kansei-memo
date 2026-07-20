@@ -4,8 +4,8 @@
 
 body {
   margin: 0;
-  background: #fafafa;
-  color: #1c1c1e;
+  background: var(--color-background);
+  color: var(--color-text-primary);
   font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', sans-serif;
 }
 
@@ -20,8 +20,8 @@ body {
   display: flex;
   gap: 8px;
   padding: calc(env(safe-area-inset-top) + 12px) 16px 12px;
-  border-bottom: 1px solid #e5e5ea;
-  background: #fff;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
 }
 
 .app-header button {
@@ -30,14 +30,17 @@ body {
   border: none;
   border-radius: 10px;
   background: transparent;
-  color: #8a8a8e;
+  color: var(--color-text-secondary);
   font-size: 15px;
   font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .app-header button.active {
-  background: #eef2ff;
-  color: #2352d9;
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
 }
 
 .app-main {
@@ -59,17 +62,17 @@ body {
 
 .sort-toggle button {
   padding: 6px 12px;
-  border: 1px solid #e5e5ea;
+  border: 1px solid var(--color-border);
   border-radius: 999px;
-  background: #fff;
+  background: var(--color-surface);
   font-size: 13px;
-  color: #6b6b70;
+  color: var(--color-text-secondary);
 }
 
 .sort-toggle button.active {
-  background: #1c1c1e;
-  color: #fff;
-  border-color: #1c1c1e;
+  background: var(--color-text-primary);
+  color: var(--color-surface);
+  border-color: var(--color-text-primary);
 }
 
 .memo-list ul {
@@ -82,7 +85,7 @@ body {
   display: flex;
   flex-direction: column;
   padding: 14px 4px;
-  border-bottom: 1px solid #ececee;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .memo-title {
@@ -92,12 +95,12 @@ body {
 
 .memo-preview {
   font-size: 13px;
-  color: #8a8a8e;
+  color: var(--color-text-secondary);
   margin-top: 2px;
 }
 
 .empty-state {
-  color: #8a8a8e;
+  color: var(--color-text-secondary);
   text-align: center;
   margin-top: 60px;
   font-size: 14px;
@@ -117,14 +120,14 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
-  background: #fff;
+  background: var(--color-surface);
   background-image:
     radial-gradient(circle at 15% 20%, rgba(204, 222, 255, 0.55) 0%, transparent 45%),
     radial-gradient(circle at 80% 15%, rgba(255, 214, 232, 0.50) 0%, transparent 40%),
     radial-gradient(circle at 70% 60%, rgba(230, 217, 255, 0.50) 0%, transparent 45%),
     radial-gradient(circle at 20% 75%, rgba(217, 255, 235, 0.50) 0%, transparent 40%),
     radial-gradient(circle at 50% 45%, rgba(255, 245, 214, 0.40) 0%, transparent 50%);
-  border: 1px solid #e5e5ea;
+  border: 1px solid var(--color-border);
   border-radius: 16px;
   touch-action: none;
 }
@@ -132,14 +135,14 @@ body {
 .graph-axis-label {
   position: absolute;
   font-size: 12px;
-  color: #8a8a8e;
+  color: var(--color-text-secondary);
   font-weight: 600;
 }
 
-.graph-axis-top { top: 8px; left: 50%; transform: translateX(-50%); }
-.graph-axis-bottom { bottom: calc(env(safe-area-inset-bottom) + 82px); left: 50%; transform: translateX(-50%); }
-.graph-axis-left { left: 12px; top: 50%; transform: translateY(-50%); writing-mode: vertical-rl; }
-.graph-axis-right { right: 12px; top: 50%; transform: translateY(-50%); writing-mode: vertical-rl; }
+.graph-axis-top { top: 10px; left: 50%; transform: translateX(-50%); }
+.graph-axis-bottom { bottom: 10px; left: 50%; transform: translateX(-50%); }
+.graph-axis-left { left: 10px; top: 50%; transform: translateY(-50%); }
+.graph-axis-right { right: 10px; top: 50%; transform: translateY(-50%); }
 
 .graph-dot {
   position: absolute;
@@ -151,9 +154,9 @@ body {
 .graph-dot-pending {
   width: 18px;
   height: 18px;
-  background: #ff3b30;
+  background: var(--color-danger);
   border: 2px solid #fff;
-  box-shadow: 0 0 0 2px #ff3b30;
+  box-shadow: 0 0 0 2px var(--color-danger);
 }
 
 .graph-confirm-bar {
@@ -161,8 +164,8 @@ body {
   left: 16px;
   right: 16px;
   bottom: calc(env(safe-area-inset-bottom) + 16px);
-  background: #1c1c1e;
-  color: #fff;
+  background: var(--color-text-primary);
+  color: var(--color-surface);
   border-radius: 14px;
   padding: 12px 16px;
   display: flex;
@@ -176,13 +179,13 @@ body {
   border-radius: 8px;
   padding: 8px 12px;
   margin-left: 8px;
-  background: #3a3a3c;
-  color: #fff;
+  background: var(--color-button-dark);
+  color: var(--color-surface);
   font-size: 13px;
 }
 
 .graph-confirm-bar button.primary {
-  background: #2352d9;
+  background: var(--color-accent);
 }
 
 /* --- フローティングボタン --- */
@@ -194,10 +197,13 @@ body {
   height: 56px;
   border-radius: 50%;
   border: none;
-  background: #2352d9;
-  color: #fff;
+  background: var(--color-accent);
+  color: var(--color-surface);
   font-size: 28px;
   box-shadow: 0 4px 14px rgba(35, 82, 217, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* --- モーダル共通 --- */
@@ -211,7 +217,7 @@ body {
 }
 
 .modal {
-  background: #fff;
+  background: var(--color-surface);
   width: 100%;
   border-radius: 20px 20px 0 0;
   padding: 20px 20px calc(env(safe-area-inset-bottom) + 20px);
@@ -229,7 +235,7 @@ body {
 
 .modal input,
 .modal textarea {
-  border: 1px solid #e5e5ea;
+  border: 1px solid var(--color-border);
   border-radius: 10px;
   padding: 10px 12px;
   font-size: 15px;
@@ -261,13 +267,13 @@ body {
   border-radius: 10px;
   padding: 10px 16px;
   font-size: 14px;
-  background: #f0f0f2;
-  color: #1c1c1e;
+  background: var(--color-surface);
+  color: var(--color-text-primary);
 }
 
 .modal-actions button.primary {
-  background: #2352d9;
-  color: #fff;
+  background: var(--color-accent);
+  color: var(--color-surface);
 }
 
 .modal-actions button:disabled {
